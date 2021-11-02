@@ -1,0 +1,33 @@
+.container {
+    max-width: 700px;
+    margin: 200px auto 0 auto;
+}
+.input {
+    width: 100%;
+    border: none;
+    box-shadow: 0px 0px 10px 0px black;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 3px;
+    outline: none;
+}
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 0px black;
+    background-color: rgb(255, 255, 255);
+    color: rgb(116, 114, 114);
+    font-size: 18px;
+}
+.clearAll {
+    cursor: pointer;
+}
+.title {
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: #383838;
+    font-weight: 100;
+    font-size: 60px;
+}

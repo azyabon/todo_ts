@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 import TodoList from './TodoList';
 import { ITodo } from '../types/data';
+import styles from '../styles/App.module.css';
 
 const App: React.FC = () => {
     const [value, setValue] = useState("");
@@ -43,6 +44,10 @@ const App: React.FC = () => {
         }))
     }
 
+    const clearAll = (): void => {
+        setTodos([]);
+    }
+
     useEffect(() => {
         if (inputRef.current) {
             inputRef.current.focus();
@@ -50,12 +55,15 @@ const App: React.FC = () => {
     }, [])
 
     return(
-        <div>
-            <div>
-                <input value={value} onChange={handleChange} onKeyDown={handleKeyDown} ref={inputRef} />
-                <button onClick={addTodo}>Add</button>
-            </div>
+        <div className={styles.container}>
+            <h1 className={styles.title}>TODOLIST</h1>
+            <input className={styles.input} value={value} onChange={handleChange} onKeyDown={handleKeyDown} ref={inputRef} placeholder="What needs to be done?" />
             <TodoList items={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
+            <div className={styles.info}>
+                <span className={styles.total}>{`Total: ${todos.length}`}</span>
+                <span>{`Complete: ${todos.filter(todo => todo.complete).length}`}</span>
+                <span onClick={clearAll}>ClearAll</span>
+            </div>
         </div>
     );
 }
